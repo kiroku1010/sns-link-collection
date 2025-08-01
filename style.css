@@ -1,0 +1,116 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2); /* 👈 淡いグラデーションにするにゃ！ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    margin: 0;
+    color: #444; /* 👈 文字色を濃いグレーにするにゃ！ */
+}
+
+.icon {
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 10px; /* 👈 アイコンの下に余白を追加して、タイトルとの間隔を空けるにゃ！ */
+}
+
+h1 {
+    font-size: 75px;
+    font-weight: bold;
+    margin: 0 0 20px 0; /* 👈 上と下に余白を追加するにゃ！ */
+    text-align: center;
+}
+
+.description {
+    margin-bottom: 75px; /* 👈 説明文とリンク集の間に余白を追加するにゃ！ */
+}
+
+p {
+    text-align: center;
+    margin: 3px; /* 👈 こちらも同様に */
+    color: #444;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 👈 中央寄せ */
+}
+
+li {
+    width: 100%;
+    max-width: 320px; /* 👈 各リンクカードの最大幅 */
+    margin: 3px 0;
+}
+
+@media (min-width: 768px) {
+    ul {
+        max-width: 500px;
+        flex-direction: row; /* 768px以上の画面幅で横並びに */
+        flex-wrap: wrap; /* 画面幅に合わせて折り返す */
+        justify-content: center; /* 横方向の中央寄せ */
+        gap: 5px; /* 項目間の間隔 */
+    }
+
+    li {
+        width: 180px; /* 👈 3列表示にするために幅を調整 */
+        max-width: none; /* 👈 max-widthをなくして、3列表示の幅を確保 */
+        margin: 0;
+    }
+}
+
+li a {
+    display: flex; /* 👈 Flexboxを有効にするにゃ！ */
+    align-items: center; /* 👈 ボタン内のテキストを上下中央に配置するにゃ！ */
+    justify-content: center; /* 👈 ボタン内のテキストを左右中央に配置するにゃ！ */
+    height: 60px; /* 👈 ボタンの最小の高さを指定して、高さを揃えるにゃ！ */
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li a span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+li.x a:hover { background-color: #000000; color: #ffffff; }
+li.migdal a:hover { background-color: #90C419; }
+li.zpdic a:hover { background-color: #472216; color: #ffffff; }
+li.youtube a:hover { background-color: #FF0033; color: #ffffff; }
+li.github a:hover { background-color: #000000; color: #ffffff; }
+li.qiita a:hover { background-color: #67cb1b; }
+li.misskey a:hover { background-color: #b4e900; }
+li.note a:hover { background-color: #000000; color: #ffffff; }
+li.nicovideo a:hover { background-color: #000000; color: #ffffff; }
+li.novelgame a:hover { background-color: #00a199; color: #ffffff; }
+li.tiktok a:hover { background-color: #000000; color: #ffffff; }
+li.bluesky a:hover { background-color: #1083fe; color: #ffffff; }
+li.threads a:hover { background-color: #000000; color: #ffffff; }
+li.instagram a:hover { background-color: #ff0069 ; color: #ffffff; }
+li.facebook a:hover { background-color: #0866ff; color: #ffffff; }
+li.reddit a:hover { background-color: #FF4500; color: #ffffff; }
