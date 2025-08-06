@@ -25,6 +25,8 @@ h1 {
 
 .description {
     margin-bottom: 75px; /* 👈 説明文とリンク集の間に余白を追加するにゃ！ */
+    width: 100%;
+    max-width: 300px;
 }
 
 p {
@@ -63,6 +65,10 @@ li {
         width: 180px; /* 👈 3列表示にするために幅を調整 */
         max-width: none; /* 👈 max-widthをなくして、3列表示の幅を確保 */
         margin: 0;
+    }
+    
+    .description {
+        width: 600px;
     }
 }
 
