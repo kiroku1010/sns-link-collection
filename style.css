@@ -25,8 +25,7 @@ h1 {
 
 .description {
     margin-bottom: 75px; /* 👈 説明文とリンク集の間に余白を追加するにゃ！ */
-    width: 100%;
-    max-width: 600px;
+    width: 300px;
 }
 
 p {
@@ -68,7 +67,7 @@ li {
     }
     
     .description {
-        width: 300px;
+        width: 600px;
     }
 }
 
