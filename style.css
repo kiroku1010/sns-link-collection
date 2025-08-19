@@ -1,4 +1,3 @@
-
 /* ========== Base & Theme ========== */
 :root{
   --bg: #0b0f14;
@@ -6,10 +5,8 @@
   --text: #e6eef8;
   --muted: #93a4b8;
   --accent: #5aa9ff;
-  --accent-2: #7dd3fc;
   --ring: #8ab6ff;
-  --shadow: 0 8px 30px rgba(0,0,0,.25);
-  --radius: 16px;
+  --shadow: 0 4px 12px rgba(0,0,0,.35);
   --gap: clamp(12px, 2.2vw, 20px);
 }
 
@@ -20,24 +17,20 @@
     --text: #0e1726;
     --muted: #586b84;
     --accent: #2563eb;
-    --accent-2: #06b6d4;
-    --ring: #84a9ff;
-    --shadow: 0 8px 22px rgba(2, 18, 53, .08);
+    --ring: #3b82f6;
+    --shadow: 0 4px 10px rgba(0,0,0,.15);
   }
 }
 
 *{ box-sizing: border-box; }
-html, body { height: 100%; font-size: 18px; } /* 全体を大きく */
+html, body { font-size: 18px; }
 body{
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  line-height: 1.75;
-  letter-spacing: .02em;
+  font-family: "Oswald", "Roboto Condensed", "Noto Sans JP", sans-serif;
+  line-height: 1.6;
+  letter-spacing: .03em;
   color: var(--text);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(90,169,255,.15), transparent 60%),
-    radial-gradient(1000px 500px at 120% 10%, rgba(125,211,252,.12), transparent 60%),
-    var(--bg);
+  background: var(--bg); /* 単色のみ */
   padding: clamp(16px, 3vw, 28px);
   display: grid;
   place-items: start center;
@@ -46,12 +39,12 @@ body{
 /* ========== Page Title ========== */
 h1{
   width: min(960px, 100%);
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   font-size: clamp(32px, 5vw, 50px);
-  line-height: 1.15;
-  font-weight: 800;
-  color: #ffffff; /* 白に固定 */
-  filter: drop-shadow(0 6px 18px rgba(90,169,255,.25));
+  font-weight: 900;
+  color: #ffffff;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 6px;
 }
 
 /* ========== Section Title ========== */
@@ -60,9 +53,10 @@ h2{
   margin: 30px auto 0;
   font-size: clamp(20px, 2.6vw, 24px);
   font-weight: 700;
-  color: #ffffff; /* 白に固定 */
+  color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  border-left: 4px solid var(--accent);
+  padding-left: 8px;
 }
 
 /* ========== Section Card (h2 + ul) ========== */
@@ -71,26 +65,18 @@ h2 + ul{
   margin: 12px auto 0;
   padding: clamp(16px, 2.2vw, 20px);
   list-style: none;
-  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: var(--radius);
+  background: var(--card);
+  border: 2px solid rgba(255,255,255,.1);
+  border-radius: 0;
   box-shadow: var(--shadow);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--gap);
-  position: relative;
-  isolation: isolate;
 }
 
-/* Decorative accent line */
-h2 + ul::before{
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+/* 「その他」の下の<ul>の下に余白を追加 */
+ul:last-of-type {
+  margin-bottom: 30px;
 }
 
 /* ========== Link Cards ========== */
@@ -102,22 +88,28 @@ a{
   gap: 12px;
   text-decoration: none;
   color: var(--text);
-  background: rgba(255,255,255,.02);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  border: 2px solid rgba(255,255,255,.12);
+  border-radius: 0;
   padding: 16px 18px;
-  font-size: 1.05em; /* リンク内の文字も少し大きめ */
-  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
-  will-change: transform;
-  position: relative;
+  font-size: 1.05em;
+  font-weight: 600;
+  transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
   min-height: 52px;
+}
+
+/* テキストを囲む<span>にのみ適用 */
+a > span {
+  white-space: nowrap; 
+  overflow: hidden;    
+  text-overflow: ellipsis;
+  flex-grow: 1; /* テキストが可能な限りスペースを占有するように */
 }
 
 a:hover{
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
-  background: rgba(255,255,255,.04);
-  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  border-color: var(--accent);
 }
 
 a:active{ transform: translateY(0); }
@@ -126,20 +118,19 @@ a:active{ transform: translateY(0); }
 a::after{
   content: "↗";
   margin-left: auto;
-  opacity: .5;
+  opacity: .6;
   font-size: 15px;
 }
 
-/* Icon bubble */
+/* Icon bubble → 四角化 */
 a::before{
   content: "🔗";
   display: inline-grid;
   place-items: center;
   width: 32px;
   height: 32px;
-  border-radius: 999px;
   background: rgba(90,169,255,.15);
-  border: 1px solid rgba(90,169,255,.35);
+  border: 2px solid rgba(90,169,255,.5);
   font-size: 18px;
 }
 
@@ -148,6 +139,7 @@ a[href*="instagram.com"]::before { content:"📸"; }
 a[href*="migdal.jp"]::before { content:"🧭"; }
 a[href*="note.com"]::before { content:"📝"; }
 a[href*="qiita.com"]::before { content:"💻"; }
+a[href*="jp.quora.com"]::before { content:"🅠"; }
 a[href*="reddit.com"]::before { content:"👽"; }
 a[href*="kakuyomu.jp"]::before { content:"📚"; }
 a[href*="syosetu.com"]::before { content:"✒️"; }
@@ -165,26 +157,18 @@ a[href*="novelgame.jp"]::before { content:"🎮"; }
 /* ========== Focus & Accessibility ========== */
 a:focus-visible{
   outline: 3px solid var(--ring);
-  outline-offset: 3px;
-}
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation: none !important;
-    transition: none !important;
-  }
+  outline-offset: 2px;
 }
 
 /* ========== Small screens fine-tuning ========== */
 @media (max-width: 420px){
-  html, body { font-size: 16px; } /* モバイルでは少し控えめに */
+  html, body { font-size: 16px; }
   a{ padding: 14px 16px; min-height: 46px; }
   h2 + ul{ gap: 12px; }
 }
 
-/* Optional: nicer selection color */
+/* Optional: selection color */
 ::selection{
-  background: rgba(90,169,255,.35);
+  background: rgba(90,169,255,.4);
   color: white;
 }
