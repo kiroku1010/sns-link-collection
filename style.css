@@ -153,6 +153,7 @@ a[href*="x.com"]::before { content:"❌"; }
 a[href*="github.com"]::before { content:"🐙"; }
 a[href*="ziphil.com"]::before { content:"🔤"; }
 a[href*="novelgame.jp"]::before { content:"🎮"; }
+a[href*="facebook.com"]::before { content:"📘"; }
 
 /* ========== Focus & Accessibility ========== */
 a:focus-visible{
