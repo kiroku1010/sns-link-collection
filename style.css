@@ -135,7 +135,6 @@ a::before{
 }
 
 /* ========== Domain-based Icons (emoji) ========== */
-a[href*="instagram.com"]::before { content:"📸"; }
 a[href*="migdal.jp"]::before { content:"🧭"; }
 a[href*="note.com"]::before { content:"📝"; }
 a[href*="qiita.com"]::before { content:"💻"; }
@@ -148,12 +147,10 @@ a[href*="youtube.com"]::before { content:"▶️"; }
 a[href*="nicovideo.jp"]::before { content:"🎞️"; }
 a[href*="bsky.app"]::before { content:"🪽"; }
 a[href*="misskey.io"]::before { content:"🌱"; }
-a[href*="threads"]::before { content:"🧵"; }
 a[href*="x.com"]::before { content:"❌"; }
 a[href*="github.com"]::before { content:"🐙"; }
 a[href*="ziphil.com"]::before { content:"🔤"; }
 a[href*="novelgame.jp"]::before { content:"🎮"; }
-a[href*="facebook.com"]::before { content:"📘"; }
 
 /* ========== Focus & Accessibility ========== */
 a:focus-visible{
